@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: update-center
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && curl -sL -o static/SysUpdate.exe https://github.com/USER/REPO/releases/latest/download/SysUpdate.exe
+    startCommand: gunicorn app:app
